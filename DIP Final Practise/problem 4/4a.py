@@ -42,8 +42,18 @@ plt.show()
 mean, std_dev = 7, 13
 gaussian_noise = np.random.normal(mean, std_dev, image.shape).astype(np.float32)
 
+#এখানে mean হলো গাউসিয়ান নয়েজের গড় (মাঝের মান), আর std_dev হলো standard deviation, মানে নয়েজের ছড়িয়ে থাকার পরিমাণ।
+#এই ক্ষেত্রে গড় = ৭ এবং standard deviation = ১৩।
+#এই লাইনে np.random.normal() ব্যবহার করে image.shape অনুযায়ী (অর্থাৎ ইমেজের আকার অনুযায়ী) গাউসিয়ান নয়েজ তৈরি করা হয়েছে।
+# এই নয়েজ হবে float32 টাইপে কনভার্ট করা, যাতে গাণিতিক অপারেশন ঠিকমতো হয়।
+
 noisy_image = image.astype(np.float32) + gaussian_noise
 noisy_image = np.clip(noisy_image, 0, 255).astype(np.uint8)
+
+#এখানে মূল ইমেজকে float32 টাইপে কনভার্ট করে গাউসিয়ান নয়েজ যোগ করা হয়েছে।
+#ইমেজে নয়েজ যুক্ত হচ্ছে এখন।
+#np.clip() ফাংশন ব্যবহার করে নিশ্চিত করা হয়েছে যে ইমেজের সব পিক্সেল ভ্যালু 0 থেকে 255-এর মধ্যে থাকে।
+
 
 plt.imshow(noisy_image, cmap='gray')
 plt.title("Image with Gaussian Noise")

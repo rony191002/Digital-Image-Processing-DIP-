@@ -1,3 +1,4 @@
+#(b)Observe the ringing effect of ideal low pass filter on the image. Use different radius (D0) of ideal low pass filter and display their results
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
